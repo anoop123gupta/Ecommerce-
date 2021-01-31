@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import AppBar from "@material-ui/core/AppBar";
-import ProductList from './Product'
+import ProductList from "./Product";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Cart from "./Cart";
 
 class Navbar extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -14,13 +13,12 @@ class Navbar extends Component {
     };
   }
 
-  handleClick() {
-    this.setState({ showCarts: !this.state.showCarts});
-  }
-
+  handleClick = () => {
+    this.setState({ showCarts: !this.state.showCarts });
+  };
 
   render() {
-    console.log("cart ", this.props.cart)
+    console.log("cart ", this.props.cart);
     return (
       <div>
         <AppBar position="static">
@@ -35,8 +33,11 @@ class Navbar extends Component {
             </div>
           </div>
         </AppBar>
-        {this.state.showCarts ? <Cart cart={this.props.cart} />  : 
-        <ProductList /> }
+        {this.state.showCarts ? (
+          <Cart cart={this.props.cart} />
+        ) : (
+          <ProductList />
+        )}
       </div>
     );
   }
